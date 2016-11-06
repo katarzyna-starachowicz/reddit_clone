@@ -7,6 +7,8 @@
     <tr>
       <th>Title</th>
       <th>Url</th>
+      <th>Like </th>
+      <th>Dislike</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,6 +18,14 @@
       <tr>
         <td><%= link.title %></td>
         <td><%= link.url %></td>
+        <td>
+          <%= link_to 'Like', like_link_path(link), method: :put %>
+          [<%= link.get_upvotes.size %>]
+        </td>
+        <td>
+          <%= link_to 'Disike', dislike_link_path(link), method: :put %>
+          [<%= link.get_downvotes.size %>]
+        </td>
         <td><%= link_to 'Show', link %></td>
         <% if link.user == current_user %>
           <td><%= link_to 'Edit', edit_link_path(link) %></td>

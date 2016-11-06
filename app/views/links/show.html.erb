@@ -10,5 +10,10 @@
   <%= @link.url %>
 </p>
 
+<p>
+  <%= link_to 'Like', like_link_path(@link), method: :put %> [<%= @link.get_upvotes.size %>]
+  <%= link_to 'Disike', dislike_link_path(@link), method: :put %> [<%= @link.get_downvotes.size %>]
+</p>
+
 <%= link_to 'Edit', edit_link_path(@link) %> |
 <%= link_to 'Back', links_path %>
