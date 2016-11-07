@@ -19,7 +19,7 @@
         <td><%= link.title %></td>
         <td>
           <%= link_to link.url, link %> <br>
-          submitted <%= time_ago_in_words link.created_at %> ago by <%= link.user.email %>
+          submitted <%= time_ago_in_words link.created_at %> ago by <%= link.user.name %>
         </td>
         <td>
           <%= link_to 'Like', like_link_path(link), method: :put %>
