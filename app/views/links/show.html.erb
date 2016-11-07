@@ -17,3 +17,14 @@
 
 <%= link_to 'Edit', edit_link_path(@link) %> |
 <%= link_to 'Back', links_path %>
+
+<p>
+  <strong><%= pluralize(@link.comments.count, "comment") %></strong>
+
+  <%= render @link.comments %>
+
+  <%= simple_form_for [@link, Comment.new] do |f| %>
+    <%= f.text_area :body %>
+    <%= f.submit 'Add comment' %>
+  <% end %>
+</p>
